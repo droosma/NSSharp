@@ -6,21 +6,35 @@ namespace NSSharp
     public sealed class NsSharpFactory
     {
         private const string nsPublicTravelInformationApiAddress = "https://gateway.apiportal.ns.nl/public-reisinformatie/api/";
-        private readonly Func<HttpClient> _httpClientFactory;
+
+        private readonly Uri _host;
         private readonly IJsonConverter _jsonConverter;
+        private readonly string _subscriptionKey;
+
+        private HttpMessageHandler _messageHandler;
         private Action<TimeSpan, string> _requestTime;
 
-        private NsSharpFactory(Func<HttpClient> httpClientFactory,
+        private NsSharpFactory(string subscriptionKey,
+                               Uri host,
                                IJsonConverter jsonConverter)
         {
-            _httpClientFactory = httpClientFactory;
-            _jsonConverter = jsonConverter;
+            if(string.IsNullOrWhiteSpace(subscriptionKey))
+                throw new ArgumentNullException(nameof(subscriptionKey));
+            _subscriptionKey = subscriptionKey;
+
+            _host = host ?? throw new ArgumentNullException(nameof(host));
+
+            _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
         }
 
         public NsTravelInformation NsTravelInformation()
         {
-            var departures = new NsDepartures(_httpClientFactory, _jsonConverter, _requestTime);
+            var httpClient = CreateHttpClient();
+
+            var departures = new NsDepartures(HttpClientFactory, _jsonConverter, _requestTime);
             return new TravelInformation(departures);
+
+            HttpClient HttpClientFactory() => httpClient;
         }
 
         public NsSharpFactory WithRequestTimeMetric(Action<TimeSpan, string> requestTime)
@@ -29,27 +43,26 @@ namespace NSSharp
             return this;
         }
 
-        public static NsSharpFactory Create(string key,
+        public static NsSharpFactory Create(string subscriptionKey,
                                             IJsonConverter jsonConverter)
-            => Create(key, nsPublicTravelInformationApiAddress, jsonConverter);
+            => new NsSharpFactory(subscriptionKey, new Uri(nsPublicTravelInformationApiAddress), jsonConverter);
 
-        public static NsSharpFactory Create(string key,
-                                            string host,
-                                            IJsonConverter jsonConverter)
-            => new NsSharpFactory(() => CreateHttpClient(key, host), jsonConverter);
-
-        private static HttpClient CreateHttpClient(string key, string host)
+        public NsSharpFactory With(HttpMessageHandler messageHandler)
         {
-            if(string.IsNullOrWhiteSpace(key))
-                throw new ArgumentNullException(nameof(key));
+            _messageHandler = messageHandler;
+            return this;
+        }
 
+        private HttpClient CreateHttpClient()
+        {
             const string subscriptionKeyHeaderName = "Ocp-Apim-Subscription-Key";
 
-            var client = new HttpClient
+            var messageHandler = _messageHandler ?? new HttpClientHandler();
+            var client = new HttpClient(messageHandler)
                          {
-                             BaseAddress = new Uri(host)
+                             BaseAddress = _host
                          };
-            client.DefaultRequestHeaders.Add(subscriptionKeyHeaderName, key);
+            client.DefaultRequestHeaders.Add(subscriptionKeyHeaderName, _subscriptionKey);
 
             return client;
         }

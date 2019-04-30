@@ -19,7 +19,7 @@ namespace NSSharp.Dto
 
         public Departure ToDeparture()
         {
-            throw new NotImplementedException();
+            return new Departure();
         }
     }
 }

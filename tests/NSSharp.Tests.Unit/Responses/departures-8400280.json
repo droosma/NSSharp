@@ -1,0 +1,555 @@
+{
+  "links": {
+    "disruptions": {
+      "uri": "/api/v2/disruptions?station\u003dGV",
+      "params": {}
+    }
+  },
+  "payload": {
+    "source": "PPV",
+    "departures": [
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  2468",
+        "plannedDateTime": "2019-04-06T20:48:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T20:48:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "6",
+        "product": {
+          "number": "2468",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "ON_STATION"
+      },
+      {
+        "direction": "Eindhoven",
+        "name": "NS  1179",
+        "plannedDateTime": "2019-04-06T20:53:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T20:53:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "3",
+        "product": {
+          "number": "1179",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          },
+          {
+            "uicCode": "8400131",
+            "mediumName": "Breda"
+          },
+          {
+            "uicCode": "8400597",
+            "mediumName": "Tilburg"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Vlissingen",
+        "name": "NS  2268",
+        "plannedDateTime": "2019-04-06T20:59:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T20:59:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "4",
+        "product": {
+          "number": "2268",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          },
+          {
+            "uicCode": "8400180",
+            "mediumName": "Dordrecht"
+          },
+          {
+            "uicCode": "8400526",
+            "mediumName": "Roosendaal"
+          }
+        ],
+        "messages": [
+          {
+            "message": "Stopt ook in Schiedam C., Blaak",
+            "style": "INFO"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Dordrecht",
+        "name": "NS  5181",
+        "plannedDateTime": "2019-04-06T21:00:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:00:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "3",
+        "product": {
+          "number": "5181",
+          "categoryCode": "SPR",
+          "shortCategoryName": "NS Sprinter",
+          "longCategoryName": "Sprinter",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "SPR",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  2279",
+        "plannedDateTime": "2019-04-06T21:03:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:03:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "6",
+        "product": {
+          "number": "2279",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  1170",
+        "plannedDateTime": "2019-04-06T21:08:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:08:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "6",
+        "product": {
+          "number": "1170",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  5170",
+        "plannedDateTime": "2019-04-06T21:12:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:12:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "5",
+        "product": {
+          "number": "5170",
+          "categoryCode": "SPR",
+          "shortCategoryName": "NS Sprinter",
+          "longCategoryName": "Sprinter",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "SPR",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Dordrecht",
+        "name": "NS  2481",
+        "plannedDateTime": "2019-04-06T21:14:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:14:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "4",
+        "product": {
+          "number": "2481",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          }
+        ],
+        "messages": [
+          {
+            "message": "Stopt ook in Schiedam C., Blaak",
+            "style": "INFO"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  2470",
+        "plannedDateTime": "2019-04-06T21:18:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:18:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "6",
+        "product": {
+          "number": "2470",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Eindhoven",
+        "name": "NS  1181",
+        "plannedDateTime": "2019-04-06T21:23:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:23:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "3",
+        "product": {
+          "number": "1181",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          },
+          {
+            "uicCode": "8400131",
+            "mediumName": "Breda"
+          },
+          {
+            "uicCode": "8400597",
+            "mediumName": "Tilburg"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Vlissingen",
+        "name": "NS  2270",
+        "plannedDateTime": "2019-04-06T21:29:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:29:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "4",
+        "product": {
+          "number": "2270",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          },
+          {
+            "uicCode": "8400180",
+            "mediumName": "Dordrecht"
+          },
+          {
+            "uicCode": "8400526",
+            "mediumName": "Roosendaal"
+          }
+        ],
+        "messages": [
+          {
+            "message": "Stopt ook in Schiedam C., Blaak",
+            "style": "INFO"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Dordrecht",
+        "name": "NS  5183",
+        "plannedDateTime": "2019-04-06T21:30:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:30:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "3",
+        "product": {
+          "number": "5183",
+          "categoryCode": "SPR",
+          "shortCategoryName": "NS Sprinter",
+          "longCategoryName": "Sprinter",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "SPR",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  2281",
+        "plannedDateTime": "2019-04-06T21:33:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:33:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "6",
+        "product": {
+          "number": "2281",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  1172",
+        "plannedDateTime": "2019-04-06T21:38:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:38:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "6",
+        "product": {
+          "number": "1172",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  5172",
+        "plannedDateTime": "2019-04-06T21:42:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:42:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "5",
+        "product": {
+          "number": "5172",
+          "categoryCode": "SPR",
+          "shortCategoryName": "NS Sprinter",
+          "longCategoryName": "Sprinter",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "SPR",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Dordrecht",
+        "name": "NS  2483",
+        "plannedDateTime": "2019-04-06T21:44:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:44:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "4",
+        "product": {
+          "number": "2483",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          }
+        ],
+        "messages": [
+          {
+            "message": "Stopt ook in Schiedam C., Blaak",
+            "style": "INFO"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS  2472",
+        "plannedDateTime": "2019-04-06T21:48:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:48:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "6",
+        "product": {
+          "number": "2472",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Eindhoven",
+        "name": "NS  1183",
+        "plannedDateTime": "2019-04-06T21:53:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-04-06T21:53:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "3",
+        "product": {
+          "number": "1183",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400170",
+            "mediumName": "Delft"
+          },
+          {
+            "uicCode": "8400530",
+            "mediumName": "Rotterdam C."
+          },
+          {
+            "uicCode": "8400131",
+            "mediumName": "Breda"
+          },
+          {
+            "uicCode": "8400597",
+            "mediumName": "Tilburg"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      }
+    ]
+  },
+  "meta": { "numberOfDisruptions": 6 }
+}

@@ -4,6 +4,7 @@ using System.Web;
 using FluentAssertions;
 
 using NSSharp.Entities;
+using NSSharp.Tests.Unit.Utilities;
 using NSSharp.Utilities;
 
 using Xunit;
