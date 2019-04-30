@@ -2,6 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+
+    <PackageProjectUrl>https://github.com/droosma/NSSharp</PackageProjectUrl>
+    <PackageLicense>https://github.com/droosma/NSSharp/blob/master/LICENSE</PackageLicense>
+    <Description>C# wrapper for NS api</Description>
+    <RepositoryUrl>https://github.com/droosma/NSSharp</RepositoryUrl>
+    <Copyright>Copyright © 2019 D.Roosma</Copyright>
+    <Authors>Duncan Roosma</Authors>
+    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
+    <AssemblyName>NSSharp</AssemblyName>
+    <RootNamespace>NSSharp</RootNamespace>
+    <PackageId>NSSharp</PackageId>
+    <Version>0.0.1</Version>
   </PropertyGroup>
 
 </Project>
