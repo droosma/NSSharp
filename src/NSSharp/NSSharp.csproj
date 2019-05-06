@@ -13,7 +13,7 @@
     <AssemblyName>NSSharp</AssemblyName>
     <RootNamespace>NSSharp</RootNamespace>
     <PackageId>NSSharp</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.1-alpha</Version>
   </PropertyGroup>
 
 </Project>
