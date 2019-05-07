@@ -1,0 +1,46 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  configuration: Release
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use DotNet 3.0.100-preview5-011568'
+  inputs:
+    packageType: 'sdk'
+    version: '3.0.100-preview5-011568'
+    includePreviewVersions: true
+- task: DotNetCoreCLI@2
+  displayName: 'Build'
+  inputs:
+    command: 'build'
+    projects: '*.sln'
+    arguments: '-p:Configuration=$(configuration)'
+    feedsToUse: 'select'
+    versioningScheme: 'off'
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests'
+  inputs:
+    command: 'test'
+    projects: '**/*.Tests.Unit.csproj'
+    testRunTitle: 'Unit tests'
+    feedsToUse: 'select'
+    versioningScheme: 'off'
+- task: DotNetCoreCLI@2
+  displayName: 'Pack'
+  inputs:
+    command: 'custom'
+    projects: '**/*.csproj'
+    custom: 'pack'
+    arguments: '--include-symbols --output $(Build.ArtifactStagingDirectory) -p:Configuration=$(configuration) -p:SymbolPackageFormat=snupkg'
+    feedsToUse: 'select'
+    versioningScheme: 'off'
