@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +13,8 @@ namespace NSSharp.Tests.Unit.Utilities
 {
     internal class TestServerBuilder : IDisposable
     {
-        private Action<IApplicationBuilder> _appBuilderAction;
+        private readonly List<Func<HttpContext, Func<Task>, Task>> _middleware = new List<Func<HttpContext, Func<Task>, Task>>();
+        private RequestDelegate _response;
         private TestServer _testServer;
 
         private TestServerBuilder()
@@ -26,21 +30,12 @@ namespace NSSharp.Tests.Unit.Utilities
 
         public TestServerBuilder WithResponse(string responseBody, string responseContentType, HttpStatusCode statusCode = HttpStatusCode.OK)
         {
-            var previousAppBuilderAction = _appBuilderAction;
-
-            _appBuilderAction = app =>
+            _response = context =>
             {
-                previousAppBuilderAction?.Invoke(app);
-
-                app.Run(
-                    context =>
-                    {
-                        context.Response.ContentType = responseContentType;
-                        context.Response.StatusCode = (int)statusCode;
-                        return context.Response.WriteAsync(responseBody);
-                    });
+                context.Response.ContentType = responseContentType;
+                context.Response.StatusCode = (int)statusCode;
+                return context.Response.WriteAsync(responseBody);
             };
-
             return this;
         }
 
@@ -58,9 +53,28 @@ namespace NSSharp.Tests.Unit.Utilities
 
         public TestServer Build()
         {
-            var webHostBuilder = new WebHostBuilder().Configure(_appBuilderAction);
+            var webHostBuilder = new WebHostBuilder().Configure(Configure);
             _testServer = new TestServer(webHostBuilder);
             return _testServer;
+        }
+
+        private void Configure(IApplicationBuilder app)
+        {
+            foreach(var mw in _middleware)
+            {
+                app.Use(mw);
+            }
+
+            app.Run(_response);
+        }
+
+        public TestServerBuilder WithMiddleware(params Func<HttpContext, Func<Task>, Task>[] middleware)
+        {
+            if(middleware.Any(mw => mw == null))
+                throw new ArgumentNullException();
+
+            _middleware.AddRange(middleware);
+            return this;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Net.Http;
+
+using Microsoft.AspNetCore.TestHost;
 
 using NSSharp.Entities;
 
@@ -16,7 +17,10 @@ namespace NSSharp.Tests.Unit.Utilities
 
         public static IJsonConverter JsonConverter => new NewtonsoftJsonConverter();
 
-        public static NsTravelInformation NsTravelInformation(HttpMessageHandler handler)
-            => NsSharpFactory.Create("subscriptionKey", JsonConverter).With(handler).NsTravelInformation();
+        public static NsTravelInformation NsTravelInformation(this TestServer server)
+            => NsSharpFactory.Create("subscriptionKey", server.CreateClient(), JsonConverter).NsTravelInformation();
+
+        public static Departures Departures(this TestServer server)
+            => new NsDepartures(server.CreateClient, JsonConverter);
     }
 }

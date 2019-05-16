@@ -22,10 +22,7 @@ namespace NSSharp.Tests.Unit
                                                 .WithResponseFromJsonResource(departureResource, HttpStatusCode.InternalServerError)
                                                 .Build())
             {
-                var handler = server.CreateHandler();
-                var travelInformation = A.NsTravelInformation(handler);
-
-                var sut = travelInformation.Departures;
+                var sut = server.Departures();
 
                 Func<Task> all = () => sut.All(DepartureRequest.Create(A.StationCode));
 
@@ -40,10 +37,7 @@ namespace NSSharp.Tests.Unit
                                                 .WithResponseFromJsonResource(departureResource, HttpStatusCode.OK)
                                                 .Build())
             {
-                var handler = server.CreateHandler();
-                var travelInformation = A.NsTravelInformation(handler);
-
-                var sut = travelInformation.Departures;
+                var sut = server.Departures();
 
                 var departures = await sut.All(DepartureRequest.Create(A.StationCode));
 
@@ -54,20 +48,13 @@ namespace NSSharp.Tests.Unit
         [Fact]
         public async Task All_GivenRequestTime_ReportsTimeOfRequest()
         {
-            const string subscriptionKey = "subscriptionKey";
-
             using(var server = TestServerBuilder.New()
                                                 .WithResponseFromJsonResource(departureResource, HttpStatusCode.OK)
                                                 .Build())
             {
-                var handler = server.CreateHandler();
+                var httpClient = server.CreateClient();
                 (TimeSpan, string) requestTime = (TimeSpan.Zero, string.Empty);
-                var travelInformation = NsSharpFactory.Create(subscriptionKey, A.JsonConverter)
-                                                      .With(handler)
-                                                      .WithRequestTimeMetric((span, s) => requestTime = (span, s))
-                                                      .NsTravelInformation();
-
-                var sut = travelInformation.Departures;
+                var sut = new NsDepartures(() => httpClient, A.JsonConverter, (span, s) => requestTime = (span, s));
 
                 await sut.All(DepartureRequest.Create(A.StationCode));
 
